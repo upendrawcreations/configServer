@@ -15,4 +15,5 @@ spring:
     show-sql: false
 app:
   jwt:
-    secret: "change-this-secret-to-a-long-random-string"
+    # Shared with services that validate org-access tokens.
+    secret: "${JWT_SECRET:change-this-secret-to-a-long-random-string}"

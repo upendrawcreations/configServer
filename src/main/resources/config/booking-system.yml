@@ -20,6 +20,7 @@ spring:
 
 app:
   jwt:
-    secret: "change-this-secret-to-a-long-random-string"
+    # Must be identical to the secret used by org-access to sign tokens.
+    secret: "${JWT_SECRET:change-this-secret-to-a-long-random-string}"
   kafka:
     booking-alert-topic: booking-alerts-topic
