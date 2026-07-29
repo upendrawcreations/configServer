@@ -24,3 +24,4 @@ app:
     secret: "${JWT_SECRET:change-this-secret-to-a-long-random-string}"
   kafka:
     booking-alert-topic: booking-alerts-topic
+    house-created-topic: house-created-topic
