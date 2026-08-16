@@ -8,3 +8,7 @@ spring:
   jpa:
     hibernate.ddl-auto: update
 app.jwt.secret: ${JWT_SECRET:change-this-secret-to-a-long-random-string}
+springdoc:
+  swagger-ui:
+    config-url: ${SWAGGER_CONFIG_URL:/cine-project/v3/api-docs/swagger-config}
+    url: ${SWAGGER_API_DOCS_URL:/cine-project/v3/api-docs}

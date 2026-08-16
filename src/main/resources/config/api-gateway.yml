@@ -4,10 +4,13 @@ server:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
       globalcors:
+        add-to-simple-url-handler-mapping: true
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOriginPatterns: "*"
             allowedMethods:
               - GET
               - POST
@@ -16,7 +19,12 @@ spring:
               - PATCH
               - OPTIONS
             allowedHeaders: "*"
+            exposedHeaders:
+              - Authorization
+              - Location
+              - Content-Disposition
             allowCredentials: true
+            maxAge: 3600
       routes:
         - id: cine-project
           uri: lb://cine-project
