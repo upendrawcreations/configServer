@@ -18,6 +18,13 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true
       routes:
+        - id: cine-project
+          uri: lb://cine-project
+          predicates:
+            - Path=/cine-project/**
+          filters:
+            - StripPrefix=1
+
         - id: specgeneration
           uri: lb://specgeneration
           predicates:
