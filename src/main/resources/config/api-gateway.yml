@@ -26,6 +26,13 @@ spring:
             allowCredentials: true
             maxAge: 3600
       routes:
+        - id: bug-management
+          uri: lb://bug-management
+          predicates:
+            - Path=/bug-management/**
+          filters:
+            - StripPrefix=1
+
         - id: cine-project
           uri: lb://cine-project
           predicates:
